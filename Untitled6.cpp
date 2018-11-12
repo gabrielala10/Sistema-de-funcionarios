@@ -141,7 +141,6 @@ int main ()
 				priIndice = odenarIndice(funcionario, tabelaInvIndice, result);
 				tot = indiceFuncao(funcionario,tabelaInvertida, pri, result, trabalho,0);
 				tot = indiceFuncao(funcionario,tabelaInvIndice, priIndice, result, trabalhoIndice,0);
-				//ordenaFuncIndice(funcionario, indice, trabalhoIndice, tot);
 				buscar = busca(chave, funcionario, result);
 				if(buscar!=-1)
 				{
@@ -160,6 +159,7 @@ int main ()
 					priIndice = odenarIndice(funcionario, tabelaInvIndice, result);
 					tot = indiceFuncao(funcionario,tabelaInvertida, pri, result, trabalho,0);
 					tot = indiceFuncao(funcionario,tabelaInvIndice, priIndice, result, trabalhoIndice,0);
+					printf("Registro eliminado com sucesso.\n");
 				}
 				else
 					printf("Chave nao encontrada\n");
@@ -167,10 +167,12 @@ int main ()
 			case 4:
 				do{
 					printf("Digite uma chave de 4 digitos para o novo registro:\n");
+					getchar();
 					scanf("%i", &i);
 				}while(valida(i, funcionario, result)==0);
-				
+				funcionario[result].id = i;
 				printf("Digite o nome do funcionario:\n");
+				getchar();
 				gets(funcionario[result].nome);
 				printf("Digite a funcao do funcionario:\n");
 				gets(funcionario[result].funcao);
